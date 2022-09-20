@@ -85,7 +85,7 @@ app.use("/", salelistroutes);
 app.use("/", purchaselistroute);
 // handling non existing routes
 app.get("*", (req, res) => {
-  res.status(404).send("OOPS! WRONG ADDRESS");
+  res.render("landing",{msg:"SORRY, WRONG ADDRESS "});
   logger.error("Page not found");
 });
 

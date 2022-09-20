@@ -2,7 +2,7 @@ const winston = require("winston");
 const { createLogger, format, transports } = require("winston");
 
 // Import mongodb
-require("winston-mongodb");
+//require("winston-mongodb");
 require("dotenv").config({ path: "./config/config.env" });
 
 module.exports = createLogger({
@@ -22,21 +22,21 @@ module.exports = createLogger({
     }),
 
     // MongoDB transport
-    new transports.MongoDB({
-      level: "http",
-      //mongo database connection link
-      db: process.env.DATABASE,
-      options: {
-        useUnifiedTopology: true,
-      },
+ //   new transports.MongoDB({
+   //   level: "http",
+     // //mongo database connection link
+      //db: process.env.DATABASE,
+      //options: {
+       // useUnifiedTopology: true,
+      //},
       // A collection to save json formatted logs
-      collection: "server_logs",
-      format: format.combine(
-        format.timestamp(),
-        // Convert logs to a json format
-        format.json()
-      ),
-    }),
+      //collection: "server_logs",
+      //format: format.combine(
+        //format.timestamp(),
+        //// Convert logs to a json format
+        //format.json()
+      //),
+    //}),
   ],
   exceptionHandlers: [new transports.File({ filename: "logs/server.log" })],
   exitOnError: false,
