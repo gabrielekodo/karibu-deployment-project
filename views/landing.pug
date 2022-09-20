@@ -34,15 +34,10 @@ head
       .col.col-md-5
         .main(style=' background-color: #07026d')
           // <input type="checkbox" id="chk" aria-hidden="true">
-          .signup
+          .signup.mb-7
             form(action='/login' method='POST')
-              label(for='chk' aria-hidden='true' style="font-size:60px")  Login
-              input#email(type='text' name='email' placeholder='Email address' required='')
-              input#password(type='password' name='password' placeholder='Password' required='')
-              //
-                <div class="form-group required">
-                </div>
-              button.custom.btn-warning(style='width: 70%;\
+              h1 WELCOME TO KARIBU GROCERIES LTD
+              a.custom.btn-warning(href='/login' style='width: 70%;\
               height:50px;' type='submit') Login
           //
             <div class=" login">
