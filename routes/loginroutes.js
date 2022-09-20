@@ -8,6 +8,10 @@ const Purchase = require("../models/Purchase");
 const Sale = require("../models/Sale");
 const Creditsale = require("../models/Creditsale");
 
+router.get('/',(req,res)=>{
+res.render('landing')})
+
+
 router.get("/home", async (req, res) => {
   req.session.user = req.user;
   let user = req.session.user;
