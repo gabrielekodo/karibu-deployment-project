@@ -76,7 +76,9 @@ const loginchecker = function (req, res, next) {
 
 app.use(loginchecker);
 // routes
-
+router.get("/", (req, res) => {
+  res.render("landing");
+});
 app.use("/", registerroutes);
 app.use("/", loginroutes);
 app.use("/", salesroutes);
