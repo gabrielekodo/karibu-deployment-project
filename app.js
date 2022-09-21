@@ -7,7 +7,7 @@ const registerroutes = require("./routes/registerroutes");
 const loginroutes = require("./routes/loginroutes");
 const purchasesroutes = require("./routes/purchaseroutes");
 const salesroutes = require("./routes/saleroutes");
-const salelistroutes = requirtre("./routes/saleslistroute");
+const salelistroutes = require("./routes/saleslistroute");
 const purchaselistroute = require("./routes/purchaselistroute");
 // instantiating server
 const app = express();
