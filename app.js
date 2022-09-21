@@ -14,10 +14,6 @@ const app = express();
 const passport = require("passport");
 const Signup = require("./models/Signup");
 
-
-
-
-
 //configs
 require("dotenv").config({ path: "./config/config.env" });
 // setting up mongoose
@@ -47,7 +43,6 @@ const expressSession = require("express-session")({
 app.set("view engine", "pug");
 app.set("views", "./views");
 
-
 // middle ware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
@@ -63,7 +58,6 @@ passport.use(Signup.createStrategy());
 passport.serializeUser(Signup.serializeUser());
 passport.deserializeUser(Signup.deserializeUser());
 
-
 const loginchecker = function (req, res, next) {
   if (req.path != "/login" && req.path != "/" && !req.session.user) {
     logger.error("unauthorized access attempted....");
@@ -76,9 +70,7 @@ const loginchecker = function (req, res, next) {
 
 app.use(loginchecker);
 // routes
-router.get("/", (req, res) => {
-  res.render("landing");
-});
+
 app.use("/", registerroutes);
 app.use("/", loginroutes);
 app.use("/", salesroutes);
@@ -87,7 +79,7 @@ app.use("/", salelistroutes);
 app.use("/", purchaselistroute);
 // handling non existing routes
 app.get("*", (req, res) => {
-  res.render("landing",{msg:"SORRY, WRONG ADDRESS "});
+  res.render("landing", { msg: "SORRY, WRONG ADDRESS " });
   logger.error("Page not found");
 });
 
